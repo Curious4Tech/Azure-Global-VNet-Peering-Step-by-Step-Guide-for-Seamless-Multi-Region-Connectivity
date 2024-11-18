@@ -10,7 +10,7 @@ Global VNet Peering allows you to connect Azure Virtual Networks (VNets) across 
 
 ## **Prerequisites**
 1. An active Azure subscription.
-2. At least two VNets in different Azure regions (e.g., `East US` and `West Europe`).
+2. At least two VNets in different Azure regions (e.g., **`East US`** and **`West Europe`**).
 3. Ensure VNets have **non-overlapping address spaces**.
 
 ---
@@ -20,14 +20,36 @@ Global VNet Peering allows you to connect Azure Virtual Networks (VNets) across 
 ### **1. Create VNets in Different Regions**
 1. Navigate to the **Azure Portal** ([https://portal.azure.com](https://portal.azure.com)).
 2. Go to **Virtual Networks** > **+ Create**.
+
+
+![image](https://github.com/user-attachments/assets/eb8f7d8a-42f2-4fd0-a00c-0ff26f1f57c4)
+
+
 3. Create the first VNet:
    - **Name**: `VNet-EastUS`
    - **Region**: `East US`
+
+
+![image](https://github.com/user-attachments/assets/ce8c3703-3957-402f-8be3-dff48de3527d)
+
+
    - **Address space**: `10.0.0.0/16`
+
+
+![image](https://github.com/user-attachments/assets/34c1dc51-8967-4a91-a9ea-5b2afd4a302b)
+
+
 4. Create the second VNet:
    - **Name**: `VNet-WestEurope`
    - **Region**: `West Europe`
+
+
+![image](https://github.com/user-attachments/assets/6e283f61-2fe0-44d0-8707-eeac91d9f2ae)
+
+
    - **Address space**: `10.1.0.0/16`
+
+![image](https://github.com/user-attachments/assets/cde323c4-7bc0-4aa5-8db5-99ec5abfe97b)
 
 ---
 
@@ -36,37 +58,66 @@ Global VNet Peering allows you to connect Azure Virtual Networks (VNets) across 
    - For `VNet-EastUS`:
      - **Subnet Name**: `Subnet-EastUS`
      - **Address range**: `10.0.1.0/24`
+
+
+
+![image](https://github.com/user-attachments/assets/7b07699a-cec3-475f-ac30-040658c6b62e)
+
+
    - For `VNet-WestEurope`:
      - **Subnet Name**: `Subnet-WestEurope`
      - **Address range**: `10.1.1.0/24`
+
+
+![image](https://github.com/user-attachments/assets/a19264c6-25ba-4e8f-8cf0-1cbcba2f9724)
 
 ---
 
 ### **3. Set Up VNet Peering**
 #### **Peer `VNet-EastUS` with `VNet-WestEurope`:**
 1. Go to **VNet-EastUS** > **Peerings** > **+ Add**.
+
+
+![image](https://github.com/user-attachments/assets/7f45c2fb-c1c7-490f-ba8c-733ab91029e9)
+
+
 2. Configure the peering:
+ ### Remote virtual network 
    - **Name**: `EastToWestPeering`
    - **Remote Virtual Network**: `VNet-WestEurope`
+  - Enable:
+     - **Allow Virtual Network Access**
+     - **Allow Forwarded Traffic** (if required)
+     - **Allow Gateway Transit** (if needed)
+
+![image](https://github.com/user-attachments/assets/5bd5e0ab-a816-4d9e-b9d5-086953c08630)
+
+
+### Local virtual network 
+   - **Name**: `Peer1`
    - Enable:
      - **Allow Virtual Network Access**
      - **Allow Forwarded Traffic** (if required)
      - **Allow Gateway Transit** (if needed)
-3. Click **Add**.
+ - Click **Add**.
 
-#### **Peer `VNet-WestEurope` with `VNet-EastUS`:**
-1. Go to **VNet-WestEurope** > **Peerings** > **+ Add**.
-2. Configure the peering:
-   - **Name**: `WestToEastPeering`
-   - **Remote Virtual Network**: `VNet-EastUS`
-   - Enable the same options as above.
-3. Click **Add**.
+
+![image](https://github.com/user-attachments/assets/f1b7746c-a440-45fc-aaf4-578556f162f7)
+
+
+#### **Peering verificaton:**
+1. Go to **VNet-WestEurope** > **Peerings**.
+
+
+
+![image](https://github.com/user-attachments/assets/e5804456-9cd7-41d8-8656-fb11a11c482c)
+
 
 ---
 
 ### **4. Test the Connectivity**
-1. Deploy a VM in `Subnet-EastUS` and another in `Subnet-WestEurope`.
-2. Use tools like `ping` or `Test-NetConnection` from one VM to test connectivity to the other VM's private IP.
+1. Deploy a VM in **`Subnet-EastUS`** and another in **`Subnet-WestEurope`**.
+2. Use tools like **`ping`** or `Test-NetConnection` from one VM to test connectivity to the other VM's private IP.
 
 ---
 
