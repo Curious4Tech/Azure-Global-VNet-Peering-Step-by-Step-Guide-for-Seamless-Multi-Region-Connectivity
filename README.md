@@ -18,7 +18,7 @@ Global VNet Peering allows you to connect Azure Virtual Networks (VNets) across 
 ## **Steps to Set Up Global VNet Peering**
 
 ### **1. Create VNets in Different Regions**
-1. Navigate to the **Azure Portal** ([https://portal.azure.com](https://portal.azure.com)).
+1. Navigate to the **Azure Portal** [https://portal.azure.com](https://portal.azure.com).
 2. Go to **Virtual Networks** > **+ Create**.
 3. Create the first VNet:
    - **Name**: `VNet-EastUS`
