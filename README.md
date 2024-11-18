@@ -61,7 +61,8 @@ Global VNet Peering allows you to connect Azure Virtual Networks (VNets) across 
 
 
 
-![image](https://github.com/user-attachments/assets/7b07699a-cec3-475f-ac30-040658c6b62e)
+![image](https://github.com/user-attachments/assets/e1ffaa5d-8803-488c-8d70-7288d6f27c60)
+
 
 
    - For `VNet-WestEurope`:
@@ -117,7 +118,25 @@ Global VNet Peering allows you to connect Azure Virtual Networks (VNets) across 
 
 ### **4. Test the Connectivity**
 1. Deploy a VM in **`Subnet-EastUS`** and another in **`Subnet-WestEurope`**.
-2. Use tools like **`ping`** or `Test-NetConnection` from one VM to test connectivity to the other VM's private IP.
+
+
+
+![image](https://github.com/user-attachments/assets/c215ca10-941a-41a3-b661-d4aa2ec38f5b)
+
+
+2. Private IP address for each VM
+
+
+
+![image](https://github.com/user-attachments/assets/c4a47fbd-4004-4389-ba0a-f780d88c1855)
+
+
+
+3. Use tools like **`ping`** or `Test-NetConnection` from one VM to test connectivity to the other VM's private IP.
+
+
+![image](https://github.com/user-attachments/assets/af4b69ae-78b1-4575-871a-e3033770865d)
+
 
 ---
 
