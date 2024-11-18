@@ -2,7 +2,6 @@
 Learn how to set up Global Virtual Network (VNet) Peering in Azure with this comprehensive guide. Follow clear, step-by-step instructions to connect VNets across regions, optimize performance, and ensure secure communication for your globally distributed applications. Perfect for cloud engineers and Azure enthusiasts!
 
 
-```markdown
 # **Setting Up Global VNet Peering in Azure**
 
 Global VNet Peering allows you to connect Azure Virtual Networks (VNets) across different regions, enabling seamless communication between resources in geographically dispersed networks.
@@ -92,5 +91,3 @@ Global VNet Peering simplifies connecting VNets across regions, making it ideal 
 ### **References**
 - [Azure Documentation on VNet Peering](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
 - [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
-
----
